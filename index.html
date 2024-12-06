@@ -15,7 +15,6 @@
         margin: 0;
       }
 
-      /* Use a wrapper to ensure the table stays 1:1 aspect ratio */
       .table-wrapper {
         position: relative;
         width: 90vmin;
@@ -26,7 +25,6 @@
 
       table {
         border-collapse: collapse;
-        font-size: 1.2rem;
         width: 100%;
         height: 100%;
       }
@@ -35,26 +33,49 @@
         width: 11.11%;
         height: 11.11%;
         border: 1px solid #ddd;
-        text-align: center;
-        vertical-align: middle;
         cursor: pointer;
         background-color: white;
+        padding: 0;
       }
 
       td:hover {
         background-color: #f1f1f1;
       }
 
-      td.uneditable {
-        cursor: default;
-        pointer-events: none;
+      input {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background-color: transparent;
+        text-align: center;
+        font-size: 1.2rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      input:disabled {
         background-color: #f1f1f1;
+      }
+
+      input:focus {
+        outline: none;
       }
 
       p {
         position: absolute;
         bottom: 0;
         margin: 1rem auto;
+      }
+
+      input[type="number"] {
+        appearance: textfield;
+        -moz-appearance: textfield;
+      }
+
+      input[type="number"]::-webkit-outer-spin-button,
+      input[type="number"]::-webkit-inner-spin-button {
+        appearance: none;
+        -webkit-appearance: none;
       }
     </style>
     <script src="bundle.js" defer></script>

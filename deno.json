@@ -1,6 +1,7 @@
 {
   "tasks": {
-    "dev": "deno run -A jsr:@kt3k/pack main.ts -o bundle.js && deno run -A server.ts"
+    "dev": "deno task bundle && deno run -A server.ts",
+    "bundle": "deno run -A jsr:@kt3k/pack main.ts -o bundle.js"
   },
   "compilerOptions": {
     "lib": [

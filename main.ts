@@ -48,7 +48,9 @@ function winCheck() {
     const cells = row.children;
     for (let j = 0; j < cells.length; j++) {
       const cell = cells[j];
-      solution += cell.textContent;
+      if (cell.firstElementChild instanceof HTMLInputElement) {
+        solution += cell.firstElementChild.value;
+      }
     }
   }
   if (solution !== game.solution) return;
@@ -66,15 +68,22 @@ for (let i = 0; i < rows.length; i++) {
   const cells = row.children;
   for (let j = 0; j < cells.length; j++) {
     const cell = cells[j];
-    cell.textContent = game.puzzle.split("")[i * 9 + j].replace("-", "");
-    if (cell.textContent !== "") {
-      cell.classList.add("uneditable");
+    const input = document.createElement("input");
+    input.type = "number";
+    input.min = "1";
+    input.max = "9";
+    input.maxLength = 1;
+    input.value = game.puzzle.split("")[i * 9 + j];
+    if (input.value !== "") {
+      input.disabled = true;
     }
-    cell.addEventListener("click", () => {
-      const value = prompt("Enter a number:");
-      if (value && !isNaN(Number(value))) {
-        cell.textContent = value.slice(0, 1);
+    cell.appendChild(input);
+    input.addEventListener("input", (e) => {
+      const value = (e.target as HTMLInputElement).value;
+      if (value && !isNaN(Number(value)) && value.length === 1) {
         winCheck();
+      } else {
+        (e.target as HTMLInputElement).value = "";
       }
     });
   }
