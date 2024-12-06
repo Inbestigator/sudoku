@@ -32,5 +32,3 @@ jobs:
           project: "capoku"
           entrypoint: "server.ts"
           root: ""
-          
-          
