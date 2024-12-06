@@ -72,22 +72,21 @@ for (let i = 0; i < rows.length; i++) {
     input.type = "number";
     input.min = "1";
     input.max = "9";
-    input.maxLength = 1;
+    input.maxLength = 2;
     input.value = game.puzzle.split("")[i * 9 + j];
-    input.pattern = "[0-9]*"
+    input.pattern = "[0-9]*";
     if (input.value !== "") {
       input.disabled = true;
     }
     cell.appendChild(input);
-    input.addEventListener("input", (e) => {
-      const value = Number((e.target as HTMLInputElement).value);
-      if (value && !isNaN(value) && value !== 0 && value < 10) {
-        winCheck();
-      } else if (value && !isNaN(value) && value > 9) {
-        (e.target as HTMLInputElement).value = value % 10;
-      } else {
-        (e.target as HTMLInputElement).value = "";
+    input.addEventListener("input", () => {
+      const value = input.value;
+      if (!value || isNaN(Number(value)) || value.slice(-1) === "0") {
+        input.value = "";
+        return;
       }
+      input.value = value.slice(-1);
+      winCheck();
     });
   }
 }
