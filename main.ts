@@ -74,16 +74,17 @@ for (let i = 0; i < rows.length; i++) {
     input.max = "9";
     input.maxLength = 1;
     input.value = game.puzzle.split("")[i * 9 + j];
+    input.pattern = "[0-9]*"
     if (input.value !== "") {
       input.disabled = true;
     }
     cell.appendChild(input);
     input.addEventListener("input", (e) => {
-      const value = (e.target as HTMLInputElement).value;
-      if (value && !isNaN(Number(value)) && value.length === 1) {
+      const value = Number((e.target as HTMLInputElement).value);
+      if (value && !isNaN(value) && value.length === 1) {
         winCheck();
-      } else {
-        (e.target as HTMLInputElement).value = "";
+      } else if (value && !isNaN(value) && value.length > 1) {
+        (e.target as HTMLInputElement).value = value.split(0,1);
       }
     });
   }
