@@ -1,0 +1,19 @@
+{
+  "tasks": {
+    "dev": "deno run -A --watch server.ts"
+  },
+  "compilerOptions": {
+    "lib": [
+      "deno.window",
+      "dom"
+    ]
+  },
+  "imports": {
+    "@capture/analytics": "jsr:@capture/analytics@^0.2.6",
+    "@libs/bundle": "jsr:@libs/bundle@^12.5.0",
+    "sudoku-gen": "npm:sudoku-gen@^1.0.2"
+  },
+  "exclude": [
+    "bundle.js"
+  ]
+}
