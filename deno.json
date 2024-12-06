@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run -A --watch server.ts"
+    "dev": "deno run -A jsr:@kt3k/pack main.ts -o bundle.js && deno run -A server.ts"
   },
   "compilerOptions": {
     "lib": [
@@ -10,7 +10,6 @@
   },
   "imports": {
     "@capture/analytics": "jsr:@capture/analytics@^0.2.6",
-    "@libs/bundle": "jsr:@libs/bundle@^12.5.0",
     "sudoku-gen": "npm:sudoku-gen@^1.0.2"
   },
   "exclude": [
