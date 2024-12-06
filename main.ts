@@ -84,7 +84,7 @@ for (let i = 0; i < rows.length; i++) {
       if (value && !isNaN(value) && value.length === 1) {
         winCheck();
       } else if (value && !isNaN(value) && value.length > 1) {
-        (e.target as HTMLInputElement).value = value.split(0,1);
+        (e.target as HTMLInputElement).value = value.slice(0,1);
       }
     });
   }
