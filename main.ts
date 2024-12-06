@@ -81,10 +81,12 @@ for (let i = 0; i < rows.length; i++) {
     cell.appendChild(input);
     input.addEventListener("input", (e) => {
       const value = Number((e.target as HTMLInputElement).value);
-      if (value && !isNaN(value) && value.length === 1) {
+      if (value && !isNaN(value) && value !== 0 && value < 10) {
         winCheck();
-      } else if (value && !isNaN(value) && value.length > 1) {
+      } else if (value && !isNaN(value) && value > 9) {
         (e.target as HTMLInputElement).value = value % 10;
+      } else {
+        (e.target as HTMLInputElement).value = "";
       }
     });
   }
