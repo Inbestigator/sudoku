@@ -10,7 +10,7 @@
     ]
   },
   "imports": {
-    "@capture/analytics": "jsr:@capture/analytics@^0.2.12",
+    "@capture/analytics": "jsr:@capture/analytics@^0.2.13",
     "sudoku-gen": "npm:sudoku-gen@^1.0.2"
   },
   "exclude": [
