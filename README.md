@@ -1,4 +1,4 @@
 # Sudoku
 
 Example project for
-[`@capture/analytics`](https://capture-analytics.vercel.app).
+[`@capture/analytics`](https://capturejs.vercel.app).
